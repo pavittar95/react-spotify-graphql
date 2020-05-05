@@ -32,7 +32,7 @@ To demonstrate your development prowess please implement the following solution 
 
 2. Use the Spotify GraphQL api: [https://spotify-api-graphql-console.herokuapp.com/](https://spotify-api-graphql-console.herokuapp.com/) to retrieve the "Chilled cow" ([https://open.spotify.com/user/chilledcow](https://open.spotify.com/user/chilledcow)) user and playlists. You will need a Spotify account to use the API. 
 
-3. Build your solution according to the design.sketch file in this repo, implementation must be pixel perfect. include any image assets from the api to complete the design. You may need to use zeplin or any other sketch file view to read the file.
+3. Build your solution according to the design.sketch file in this repo, implementation must be pixel perfect. include any image assets from the api to complete the design.
 
 4. Use these components from our component library to assist you:
 
@@ -50,3 +50,5 @@ e.g. https://www.npmjs.com/package/@uprise/colors
 5. When complete please create a PR into this repo
 
 **Please use any relevant technologies in the Uprise stack to demonstrate your expertise. E.g. react, react functional components, redux, styled components**
+
+![enter image description here](https://uprise-tech-support.s3-ap-southeast-2.amazonaws.com/Screen+Shot+2020-05-04+at+11.31.06.png)
