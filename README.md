@@ -30,7 +30,7 @@ To demonstrate your development prowess please implement the following solution 
 
 1. Please fork this repo
 
-2. Use the Spotify GraphQL api: [https://spotify-api-graphql-console.herokuapp.com/](https://spotify-api-graphql-console.herokuapp.com/) to retrieve the "Chilled cow" ([https://open.spotify.com/user/chilledcow](https://open.spotify.com/user/chilledcow)) user and playlists. You will need a Spotify account to use the API. 
+2. Please for this incomplete GraphQL API that is a wrapper of the spotify REST api: https://bitbucket.org/upriseco/uprise-graphql-spotify/src/master/ - complete the missing endpoints that will enable you to complete the following tasks, ie user, playlist endpoints. 
 
 3. Build your solution according to the design.sketch file in this repo, implementation must be pixel perfect. include any image assets from the api to complete the design.
 
