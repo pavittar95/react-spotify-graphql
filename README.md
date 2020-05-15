@@ -1,7 +1,6 @@
 
 # Introduction #
 
-  
 
 A sample project to test technical brilliance amongst our interview candidates Implement the following specification and design as near as possible to a production application.
 
@@ -30,7 +29,7 @@ To demonstrate your development prowess please implement the following solution 
 
 1. Please fork this repo
 
-2. Please for this incomplete GraphQL API that is a wrapper of the spotify REST api: https://bitbucket.org/upriseco/uprise-graphql-spotify/src/master/ - complete the missing endpoints that will enable you to complete the following tasks, ie user, playlist endpoints. 
+2. install the spotify graphQL https://github.com/wittydeveloper/spotify-graphql
 
 3. Build your solution according to the design.sketch file in this repo, implementation must be pixel perfect. include any image assets from the api to complete the design.
 
