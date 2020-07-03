@@ -1,23 +1,25 @@
 import React, { useEffect } from "react";
 import Loader from "../components/Loader";
-import { useLocation } from "@reach/router"
-import queryString from 'query-string';
-// import button from '@uprise/button'; 
-// import card from '@uprise/card'; 
-// import grid from '@uprise/grid'; 
-// import text from '@uprise/text'; 
-// import colors from '@uprise/colors'; 
-// import image from '@uprise/image'; 
-// import spacing from '@uprise/spacing'; 
-// import typography from '@uprise/typography'; 
+import { useLocation, useHistory } from "react-router-dom";
+import queryString from "query-string";
+import { login } from "../actions/user";
+import { useDispatch } from "react-redux";
+import { getUser } from "../actions/user";
 
 export default function Authentication() {
   const location = useLocation();
-  const query = queryString.parse(location.hash);
+  const history = useHistory();
 
+  const query = queryString.parse(location.hash);
+  const dispatch = useDispatch();
   useEffect(() => {
-    console.log(query);
-  }, [query]);
+    dispatch(login(query));
+    dispatch(
+      getUser(() => {
+        history.push("/overview");
+      })
+    );
+  }, [query, dispatch, history]);
 
   return (
     <>

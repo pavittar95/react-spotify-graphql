@@ -1,0 +1,63 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  background-color: #edeafa;
+}
+
+p {
+  margin: 0;
+}
+
+.relative {
+  position: relative;
+}
+
+.justify-content-evenly {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+.fs-1 {
+  font-size: 0.25rem;
+}
+
+.fs-2 {
+  font-size: 0.75rem;
+}
+
+.fs-3 {
+  font-size: 1rem !important;
+}
+
+.fs-4 {
+  font-size: 1.25rem;
+}
+
+.fs-5 {
+  font-size: 1.75rem;
+}
+
+.fs-6 {
+  font-size: 2rem;
+}
+
+.flex-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+/*# sourceMappingURL=index.css.map */

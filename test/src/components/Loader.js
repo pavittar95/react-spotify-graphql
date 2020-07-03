@@ -1,6 +1,4 @@
 import React from "react";
-import { extended } from '@uprise/colors';
-import styled from 'styled-components';
 import "../styles/loader.scss";
 
 export default function Loader() {
