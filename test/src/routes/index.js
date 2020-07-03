@@ -1,22 +1,54 @@
-import React from "react";
-import { Router } from "@reach/router";
+import React, { Fragment } from "react";
+import { Switch } from "react-router-dom";
 import Overview from "../containers/overview";
-import Featured from "../containers/featured";
 import Playlist from "../containers/playlist";
 import Login from "../containers/login";
 import Authentication from "../containers/authentication";
+import AppRoute from "./appRoute";
+import Layout from "../components/Layout";
 
-const NotFound = () => <p>Sorry, nothing here</p>
+const NotFound = () => <p>Sorry, nothing here</p>;
 
-export default function Routes() {
+export default function Routes({ store }) {
   return (
-    <Router>
-      <Overview path="/" />
-      <Login path="/login" />
-      <Authentication path="/callback" />
-      <Featured path="/featured" />
-      <Playlist path="/playlist" />
-      <NotFound default />
-    </Router>
+    <Switch>
+      <AppRoute
+        exact={true}
+        path="/"
+        component={Login}
+        store={store}
+        layout={Fragment}
+        type="public"
+      />
+      <AppRoute
+        exact={true}
+        path="/overview"
+        component={Overview}
+        store={store}
+        layout={Layout}
+      />
+      <AppRoute
+        exact={true}
+        path="/callback"
+        component={Authentication}
+        store={store}
+        layout={Fragment}
+        type="public"
+      />
+      <AppRoute
+        exact={true}
+        path="/playlist"
+        component={Playlist}
+        store={store}
+        layout={Layout}
+      />
+      <AppRoute
+        exact
+        path="*"
+        component={NotFound}
+        store={store}
+        layout={Layout}
+      />
+    </Switch>
   );
 }

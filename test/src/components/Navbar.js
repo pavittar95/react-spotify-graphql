@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { Link } from "@reach/router";
+import React, { useState, useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { backgrounds, primary } from "@uprise/colors";
 import { Medium } from "@uprise/text";
 import { Card } from "@uprise/card";
 import { spacing } from "@uprise/spacing";
 import styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
+import * as actions from "../actions/user";
 
 const StyledCard = styled(Card)`
   overflow: inherit;
@@ -77,6 +79,26 @@ const NavLink = styled(Link)`
 
 export default function Navbar() {
   const [show, setShow] = useState(false);
+  const [limit, setLimit] = useState(1);
+
+  const { top_artists } = useSelector((state) => state.profile);
+  const dispatch = useDispatch();
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!show) {
+      if (10 * limit < top_artists.length) {
+        setLimit(limit + 1);
+      }
+    }
+  }, [show, limit, top_artists]);
+
+  const logout = () => {
+    dispatch(actions.logout());
+    history.push('/login');
+  };
+
   return (
     <StyledCard
       shadow
@@ -85,23 +107,34 @@ export default function Navbar() {
       padding={`0 ${spacing.s5}`}
     >
       <Medium className="pr-5">
-        <NavLink to="/">Overview</NavLink>
+        <NavLink to="/overview">Overview</NavLink>
       </Medium>
       <Medium className="pr-5">
         <NavLink to="/playlist">Playlist</NavLink>
       </Medium>
-      <div className="pr-5 relative">
-        <Medium>
-          <DropDownButton active={show} onClick={() => setShow(!show)}>
-            Featured
-          </DropDownButton>
-        </Medium>
-        <DropDown show={show}>
-          <DropDownItem to="/">Overview</DropDownItem>
-          <DropDownItem to="/playlist">Playlist</DropDownItem>
-          <DropDownItem to="/">Featured</DropDownItem>
-        </DropDown>
-      </div>
+      {top_artists.length && (
+        <div className="pr-5 relative">
+          <Medium>
+            <DropDownButton active={show} onClick={() => setShow(!show)}>
+              Featured
+            </DropDownButton>
+          </Medium>
+          <DropDown show={show}>
+            {top_artists.slice(10 * (limit - 1), 10 * limit).map((x) => (
+              <DropDownItem
+                key={x.id}
+                to={`/overview?id=${x.id}`}
+                onClick={() => setShow(false)}
+              >
+                {x.name}
+              </DropDownItem>
+            ))}
+          </DropDown>
+        </div>
+      )}
+      <Medium className="pr-5">
+        <DropDownButton onClick={logout}>Logout</DropDownButton>
+      </Medium>
     </StyledCard>
   );
 }
