@@ -15,7 +15,7 @@
     "@uprise/spacing": "^1.0.0",
     "@uprise/text": "^1.0.8",
     "@uprise/typography": "^1.0.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "env-cmd": "^10.1.0",
     "node-sass": "^4.14.1",
     "query-string": "^6.13.1",
